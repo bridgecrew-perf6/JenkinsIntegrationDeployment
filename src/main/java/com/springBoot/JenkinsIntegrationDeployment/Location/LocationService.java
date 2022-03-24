@@ -38,7 +38,7 @@ public class LocationService {
 	       return locationRepository.save(location);
 	   }
 
-	   public Location update(String id) {
+	   /*public Location update(String id) {
 			
 			Location locationFromDb = locationRepository.findById(id).get();
 			//System.out.println("setDbData has a value: " + jdbcUrl1);
@@ -74,7 +74,7 @@ public class LocationService {
 		   
 		   return locationRepository.save(location);
 		
-		}
+		}*/
 	   
 	   public Location update(String id, String name) {
 		   
@@ -83,6 +83,11 @@ public class LocationService {
 			locationFromDb.setName(name);
 			
 		    return locationRepository.save(locationFromDb);
+		}
+
+		public Location insert(String id, String name) {
+			Location location = new Location(id, name);
+			return locationRepository.save(location);
 		}
 	
 	

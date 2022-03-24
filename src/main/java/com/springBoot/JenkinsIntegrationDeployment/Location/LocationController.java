@@ -55,22 +55,27 @@ public class LocationController {
    private Location insertLocation(@RequestBody Location location)   
    {  
    return locationService.insertLocation(location);  
-   }  
-  
-   @GetMapping("/locationsUpdate/{id}")  
-	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id) {
-	   return locationService.update(id);
+   }
+   
+   @GetMapping("/locationsUpdate/{id}/{name}")  
+	public Location insertDatabaseJenkinsInput(@PathVariable("id") String id, @PathVariable("name") String name) {
+	   return locationService.insert(id, name);
 	}
    
    @GetMapping("/locationsUpdate/{id}/{name}")  
 	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   return locationService.update(id, name);
 	}
+  
+   /*@GetMapping("/locationsUpdate/{id}")  
+	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id) {
+	   return locationService.update(id);
+	}*/
    
-   @GetMapping("/locationsUpdate")  
+   /*@GetMapping("/locationsUpdate")  
 	public Location updateDatabaseJenkinsInput() {
 	   return locationService.update();
-	}
+	}*/
    
    
 }
