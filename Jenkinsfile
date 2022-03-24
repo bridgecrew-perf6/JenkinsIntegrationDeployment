@@ -79,7 +79,7 @@ pipeline {
 			steps {
 				sh 'docker image tag ${imageName} "$user"/${imageName}'
 				
-				sh 'docker push "$user"/"${imageName}"'
+				//sh 'docker push "$user"/"${imageName}"'
 				
 				sh 'docker volume create "${imageVolume}"'
 				
