@@ -57,7 +57,7 @@ public class LocationController {
    return locationService.insertLocation(location);  
    }
    
-   @GetMapping("/locationsUpdate/{id}/{name}")  
+   @GetMapping("/locationsInsert/{id}/{name}")  
 	public Location insertDatabaseJenkinsInput(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   return locationService.insert(id, name);
 	}
