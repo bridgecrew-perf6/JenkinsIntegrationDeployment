@@ -15,45 +15,7 @@ public class LocationController {
 	
    @Autowired
    private LocationService locationService;
-   /*
-   @RequestMapping(method=RequestMethod.POST, value="/locations")
-   public void addLocation(@RequestBody Location location) {
-   	locationService.addLocation(location);
-   }
-   
-   @RequestMapping(value = "/location/{id}", method = RequestMethod.DELETE)
-   public void deleteLocation(@PathVariable String id) {
-       locationService.deleteLocation(id);
-   }
-	
-   @RequestMapping(value = "/locations")
-   public List<Location> getAllLocations() 
-   {
-	return locationService.getAllLocations();
-   }		
-   
-   @RequestMapping(value = "/locations/{id}")
-   public Location getLocation(@PathVariable String id) {
-   	return locationService.getLocation(id);
-   }
-   */
-   
-   @GetMapping("getAllLocations")  
-   private List<Location> getAllLocations()   
-   {  
-   return locationService.allLocations();  
-   } 
-   @GetMapping("/locations/{id}")  
-   private Location getLocationById(@PathVariable("id") String id)   
-   {  
-   return locationService.getLocationById(id);  
-   }
-   
-   @PostMapping("/locations")
-   private Location insertLocation(@RequestBody Location location)   
-   {  
-   return locationService.insertLocation(location);
-   }
+  
    
    //Generic Mapping
    @GetMapping("getAllLocations/{id}/{name}")  
@@ -84,13 +46,56 @@ public class LocationController {
 	   	return location;
 	}
    
+   //JSON Post Mapping
+
+   @GetMapping("getAllLocations")  
+   private List<Location> getAllLocations()   
+   {  
+   return locationService.allLocations();  
+   } 
+   @GetMapping("/locations/{id}")  
+   private Location getLocationById(@PathVariable("id") String id)   
+   {  
+   return locationService.getLocationById(id);  
+   }
+   
+   @PostMapping("/locationsInsertObject")
+   private Location insertLocationWithObject(@RequestBody Location location)   
+   {  
+   return locationService.insertLocation(location);
+   }
+   @PostMapping("/locationsUpdateObject")
+   private Location updateLocationWithObject(@RequestBody Location location)   
+   {  
+   return locationService.updateLocationWithObject(location);
+   }
    
    
+
    
+   /*
+   @RequestMapping(method=RequestMethod.POST, value="/locations")
+   public void addLocation(@RequestBody Location location) {
+   	locationService.addLocation(location);
+   }
    
+   @RequestMapping(value = "/location/{id}", method = RequestMethod.DELETE)
+   public void deleteLocation(@PathVariable String id) {
+       locationService.deleteLocation(id);
+   }
+	
+   @RequestMapping(value = "/locations")
+   public List<Location> getAllLocations() 
+   {
+	return locationService.getAllLocations();
+   }		
    
-   
-   
+   @RequestMapping(value = "/locations/{id}")
+   public Location getLocation(@PathVariable String id) {
+   	return locationService.getLocation(id);
+   }
+   */
+
   
    /*@GetMapping("/locationsUpdate/{id}")  
 	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id) {

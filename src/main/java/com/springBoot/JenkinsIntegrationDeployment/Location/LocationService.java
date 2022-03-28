@@ -16,12 +16,6 @@ public class LocationService {
 	   	
 	   @Value(value = "${dataToBeUpdatedValue}")
 	   private String dataToBeUpdated;
-	   
-
-	   
-	   //getting all student records  
- 
-	   
 
 	   
 	   
@@ -29,83 +23,11 @@ public class LocationService {
 		   System.out.println(location.toString());
 	       return locationRepository.save(location);
 	   }
-
-	   /*public Location update(String id) {
-			
-			Location locationFromDb = locationRepository.findById(id).get();
-			//System.out.println("setDbData has a value: " + jdbcUrl1);
-			//System.out.println("getProperty returned a value: " + System.getProperty("${hsqlSource}"));;
-
-		    return locationRepository.save(locationFromDb);
-			
-		}
 	   
-	   public Location update() {
-		   
-			
-			//Location locationFromDb = locationRepository.findById(id).get();
-			//locationFromDb.setName(name);
-			//System.out.println("dbDataVal has a value: " + dataToBeUpdated.toString());
-		   Location location = new Location();
-			String[] dataToBeUpdatedArray = dataToBeUpdated.split("\\s+");
-			//for(String data:newStr) {
-			//	System.out.println("dbDataVal has a value: " + data);
-			//}
-			
-			//System.out.println("getProperty returned a value: " + System.getProperty("${hsqlSource}"));;
-
-		    //return locationRepository.save(locationFromDb);
-		   if(dataToBeUpdatedArray.length == 2) {
-			   location.setId(dataToBeUpdatedArray[0]);
-			   location.setName(dataToBeUpdatedArray[1]);
-			   
-		   }
-		   else {
-			   location.setName("No Location Given");
-		   }
-		   
-		   return locationRepository.save(location);
-		
-		}*/
-	   
-
-
-
-		public Location getLocationByName(String name) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	
-	
-/*	
-   Location location1 = new Location("l1", "Lagos");
-   Location location2 = new Location("l2", "Asaba");
-   Location location3 = new Location("l3", "Budapest");	
-   
-   List<Location> locations = new ArrayList<>(Arrays.asList(location1, location2, location3));
-	
-   public List<Location> getAllLocations() {
-		
-	return locations;
-   }
-   public Location getLocation(String id) {
-	    Location location = locations.stream()
-		.filter(t -> id.equals(t.getId()))
-		.findFirst()
-		.orElse(null);
-			
-	    return location;
-	}
-   
-   public void addLocation(Location location) {
-	     locations.add(location);
-	}
-   
-   public void deleteLocation(String id) {
-	    locations.removeIf(t -> t.getId().equals(id));
-	}
-*/
-		
+	   public Location updateLocationWithObject(Location location) {
+		   System.out.println(location.toString());
+	       return locationRepository.save(location);
+	   }
 		
 		public List<Location> allLocations(){
 		   List<Location> locations = new ArrayList<Location>();  
@@ -131,6 +53,74 @@ public class LocationService {
 		public void delete(String id, String name) {
 			locationRepository.deleteById(id);
 		}
+		
+		
+		   /*public Location update(String id) {
+		
+				Location locationFromDb = locationRepository.findById(id).get();
+				//System.out.println("setDbData has a value: " + jdbcUrl1);
+				//System.out.println("getProperty returned a value: " + System.getProperty("${hsqlSource}"));;
+
+			    return locationRepository.save(locationFromDb);
+				
+			}
+		   
+		   public Location update() {
+			   
+				
+				//Location locationFromDb = locationRepository.findById(id).get();
+				//locationFromDb.setName(name);
+				//System.out.println("dbDataVal has a value: " + dataToBeUpdated.toString());
+			   Location location = new Location();
+				String[] dataToBeUpdatedArray = dataToBeUpdated.split("\\s+");
+				//for(String data:newStr) {
+				//	System.out.println("dbDataVal has a value: " + data);
+				//}
+				
+				//System.out.println("getProperty returned a value: " + System.getProperty("${hsqlSource}"));;
+
+			    //return locationRepository.save(locationFromDb);
+			   if(dataToBeUpdatedArray.length == 2) {
+				   location.setId(dataToBeUpdatedArray[0]);
+				   location.setName(dataToBeUpdatedArray[1]);
+				   
+			   }
+			   else {
+				   location.setName("No Location Given");
+			   }
+			   
+			   return locationRepository.save(location);
+			
+			}*/
+		/*	
+		   Location location1 = new Location("l1", "Lagos");
+		   Location location2 = new Location("l2", "Asaba");
+		   Location location3 = new Location("l3", "Budapest");	
+		   
+		   List<Location> locations = new ArrayList<>(Arrays.asList(location1, location2, location3));
+			
+		   public List<Location> getAllLocations() {
+				
+			return locations;
+		   }
+		   public Location getLocation(String id) {
+			    Location location = locations.stream()
+				.filter(t -> id.equals(t.getId()))
+				.findFirst()
+				.orElse(null);
+					
+			    return location;
+			}
+		   
+		   public void addLocation(Location location) {
+			     locations.add(location);
+			}
+		   
+		   public void deleteLocation(String id) {
+			    locations.removeIf(t -> t.getId().equals(id));
+			}
+		*/
+				
 
 
 }
