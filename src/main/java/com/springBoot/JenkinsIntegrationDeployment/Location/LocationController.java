@@ -36,15 +36,7 @@ public class LocationController {
    	return locationService.getLocation(id);
    }
    */
-   
 
-   
-   @GetMapping("/locations")  
-   private List<Location> allLocations()   
-   {  
-   return locationService.allLocations();  
-   }  
-   
    @GetMapping("/locations/{id}")  
    private Location getLocationById(@PathVariable("id") String id)   
    {  
@@ -54,18 +46,45 @@ public class LocationController {
    @PostMapping("/locations")
    private Location insertLocation(@RequestBody Location location)   
    {  
-   return locationService.insertLocation(location);  
+   return locationService.insertLocation(location);
    }
    
-   @GetMapping("/locationsInsert/{id}/{name}")  
-	public Location insertDatabaseJenkinsInput(@PathVariable("id") String id, @PathVariable("name") String name) {
-	   return locationService.insert(id, name);
+   //Generic Mapping
+   @GetMapping("getAllLocations")  
+   private List<Location> allLocations()   
+   {  
+   return locationService.allLocations();  
+   }  
+   @GetMapping("/getLocation/{id}/{name}")  
+   private Location getDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name)   
+   {   
+	   return locationService.getLocationById(id);  
+   }
+   
+   @PostMapping("/insertLocation/{id}/{name}")  
+	public Location insertDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
+	   return locationService.insert(name);
 	}
    
-   @GetMapping("/locationsUpdate/{id}/{name}")  
-	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id, @PathVariable("name") String name) {
+   @PostMapping("/updateLocation/{id}/{name}")  
+	public Location updateDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   return locationService.update(id, name);
 	}
+   
+   @PostMapping("/deleteLocation/{id}/{name}")  
+	public Location deleteDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
+	   Location location = locationService.getLocationById(id); 
+	   	locationService.delete(id, name);
+	   	return location;
+	}
+   
+   
+   
+   
+   
+   
+   
+   
   
    /*@GetMapping("/locationsUpdate/{id}")  
 	public Location updateDatabaseJenkinsInput(@PathVariable("id") String id) {

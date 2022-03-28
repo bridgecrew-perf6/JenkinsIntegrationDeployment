@@ -20,17 +20,9 @@ public class LocationService {
 
 	   
 	   //getting all student records  
-	   public List<Location> allLocations()   
-	   {  
-	   List<Location> locations = new ArrayList<Location>();  
-	   locationRepository.findAll().forEach(location -> locations.add(location));  
-	   return locations;  
-	   }  
+ 
 	   
-	   public Location getLocationById(String id)   
-	   {  
-	   return locationRepository.findById(id).get();  
-	   }  
+
 	   
 	   
 	   public Location insertLocation(Location location) {
@@ -76,18 +68,12 @@ public class LocationService {
 		
 		}*/
 	   
-	   public Location update(String id, String name) {
-		   
-			
-			Location locationFromDb = locationRepository.findById(id).get();
-			locationFromDb.setName(name);
-			
-		    return locationRepository.save(locationFromDb);
-		}
 
-		public Location insert(String id, String name) {
-			Location location = new Location(id, name);
-			return locationRepository.save(location);
+
+
+		public Location getLocationByName(String name) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	
 	
@@ -119,7 +105,32 @@ public class LocationService {
 	    locations.removeIf(t -> t.getId().equals(id));
 	}
 */
+		
+		
+		public List<Location> allLocations(){
+		   List<Location> locations = new ArrayList<Location>();  
+		   locationRepository.findAll().forEach(location -> locations.add(location));  
+		   return locations;  
+		} 
+		   
+		public Location getLocationById(String id){ 
+		   return locationRepository.findById(id).get();  
+		}  
+		   
+		public Location insert( String name) {
+			Location location = new Location(name);
+			return locationRepository.save(location);
+		}
+			
+		public Location update(String id, String name) {
+			Location locationFromDb = locationRepository.findById(id).get();
+			locationFromDb.setName(name);				
+		    return locationRepository.save(locationFromDb);
+		}
 
+		public void delete(String id, String name) {
+			locationRepository.deleteById(id);
+		}
 
 
 }

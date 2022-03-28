@@ -31,9 +31,8 @@ public class Location {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Location(String id, String name) {
+	public Location(String name) {
 		super();
-		this.id = id;
 		this.name = name;
 	}
 	@Override
