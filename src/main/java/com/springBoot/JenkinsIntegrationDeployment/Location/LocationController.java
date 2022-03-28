@@ -1,6 +1,7 @@
 package com.springBoot.JenkinsIntegrationDeployment.Location;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,15 +51,15 @@ public class LocationController {
    }
    
    //Generic Mapping
-   @GetMapping("getAllLocations")  
+   @GetMapping("getAllLocations/{id}/{name}")  
    private List<Location> allLocations()   
    {  
    return locationService.allLocations();  
    }  
    @GetMapping("/getLocation/{id}/{name}")  
-   private Location getDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name)   
+   private Optional<Location> getDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name)   
    {   
-	   return locationService.getLocationById(id);  
+	   return Optional.ofNullable(locationService.getLocationById(id));  
    }
    
    @PostMapping("/insertLocation/{id}/{name}")  
