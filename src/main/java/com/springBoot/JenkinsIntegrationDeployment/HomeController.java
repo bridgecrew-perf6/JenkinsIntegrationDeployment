@@ -15,7 +15,7 @@ public class HomeController {
 	public static String HomeScreen() {
 	    return "Welcome to Spring Boot Home Screen \n"
 	    		+ "The following are the Location Control Mappings \n"
-	    		+ "@GetMapping(\"getAllLocations/{id}/{name} \n"
+	    		+ "getAllLocations/{id}/{name} \n"
 	    		+ "\"/getLocation/{id}/{name}\""
 	    		+ "/insertLocation/{id}/{name}"
 	    		+ "/updateLocation/{id}/{name}"
