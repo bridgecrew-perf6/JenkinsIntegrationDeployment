@@ -37,7 +37,12 @@ public class LocationController {
    	return locationService.getLocation(id);
    }
    */
-
+   
+   @GetMapping("getAllLocations")  
+   private List<Location> getAllLocations()   
+   {  
+   return locationService.allLocations();  
+   } 
    @GetMapping("/locations/{id}")  
    private Location getLocationById(@PathVariable("id") String id)   
    {  
