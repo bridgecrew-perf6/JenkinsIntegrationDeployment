@@ -13,17 +13,17 @@ public class HomeController {
 	
 	@RequestMapping(value="/")
 	public static String HomeScreen() {
-	    return "Welcome to Spring Boot Home Screen \n"
-	    		+ "The following are the Location Control Mappings \n"
-	    		+ "getAllLocations/{id}/{name} \n"
-	    		+ "\"/getLocation/{id}/{name}\""
-	    		+ "/insertLocation/{id}/{name}"
-	    		+ "/updateLocation/{id}/{name}"
-	    		+ "/deleteLocation/{id}/{name}"
-	    		+ "getAllLocations"
-	    		+ "/locations/{id}"
-	    		+ "/locationsInsertObject"
-	    		+ "/locationsUpdateObject";
+	    return "Welcome to Spring Boot Home Screen <br>"
+	    		+ "The following are the Location Control Mappings <br>"
+	    		+ "getAllLocations/{id}/{name} <br>"
+	    		+ "\"/getLocation/{id}/{name}\" <br>"
+	    		+ "/insertLocation/{id}/{name}<br>"
+	    		+ "/updateLocation/{id}/{name}<br>"
+	    		+ "/deleteLocation/{id}/{name}<br>"
+	    		+ "getAllLocations<br>"
+	    		+ "/locations/{id}<br>"
+	    		+ "/locationsInsertObject<br>"
+	    		+ "/locationsUpdateObject<br>";
 
 	}
 	
