@@ -50,8 +50,14 @@ public class LocationService {
 		    return locationRepository.save(locationFromDb);
 		}
 
-		public void delete(String id, String name) {
-			locationRepository.deleteById(id);
+		public String delete(String id, String name) {
+			try {
+				locationRepository.deleteById(id);
+				return "Deleted Object";
+			}
+			catch(Exception e) {
+				return "No such Object";
+			}
 		}
 		
 		
