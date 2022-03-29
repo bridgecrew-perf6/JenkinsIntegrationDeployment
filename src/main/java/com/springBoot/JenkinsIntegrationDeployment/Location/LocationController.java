@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -40,7 +42,7 @@ public class LocationController {
 	   return locationService.update(id, name);
 	}
    
-   @DeleteMapping("/deleteLocation/{id}/{name}")  
+   @RequestMapping(value = "/deleteLocation/{id}/{name}",method=RequestMethod.DELETE)  
 	public Location deleteDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   Location location = locationService.getLocationById(id); 
 	   	locationService.delete(id, name);
