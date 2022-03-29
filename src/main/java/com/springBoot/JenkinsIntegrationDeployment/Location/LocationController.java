@@ -45,7 +45,7 @@ public class LocationController {
    @RequestMapping(value = "/deleteLocation/{id}/{name}",method=RequestMethod.DELETE)  
 	public Location deleteDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   Location location = locationService.getLocationById(id);
-	   System.out.println(location);
+	   System.out.println("The location to be deleted is" + location);
 	   	locationService.delete(id, name);
 	   	return location;
 	}
