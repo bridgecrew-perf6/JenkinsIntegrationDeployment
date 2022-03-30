@@ -27,7 +27,7 @@ public class LocationController {
    return locationService.allLocations();  
    }  
    @GetMapping("/getLocation/{id}/{name}")  
-   private Optional<Location> getDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name)   
+   private Optional<String> getDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name)   
    {   
 	   return Optional.ofNullable(locationService.getLocationById(id));  
    }
@@ -38,7 +38,7 @@ public class LocationController {
 	}
    
    @PostMapping("/updateLocation/{id}/{name}")  
-	public Location updateDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
+	public String updateDatabaseRow(@PathVariable("id") String id, @PathVariable("name") String name) {
 	   return locationService.update(id, name);
 	}
    
@@ -55,7 +55,7 @@ public class LocationController {
    return locationService.allLocations();  
    } 
    @GetMapping("/locations/{id}")  
-   private Location getLocationById(@PathVariable("id") String id)   
+   private String getLocationById(@PathVariable("id") String id)   
    {  
    return locationService.getLocationById(id);  
    }

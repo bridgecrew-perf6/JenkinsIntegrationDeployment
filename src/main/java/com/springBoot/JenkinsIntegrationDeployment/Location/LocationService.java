@@ -35,8 +35,13 @@ public class LocationService {
 		   return locations;  
 		} 
 		   
-		public Location getLocationById(String id){ 
-		   return locationRepository.findById(id).get();  
+		public String getLocationById(String id){ 
+			try {
+				return locationRepository.findById(id).get().toString();
+			}
+			catch(Exception e) {
+				return "Cannot find a location with id: "+ id;
+			}
 		}  
 		   
 		public Location insert( String name) {
@@ -44,10 +49,15 @@ public class LocationService {
 			return locationRepository.save(location);
 		}
 			
-		public Location update(String id, String name) {
-			Location locationFromDb = locationRepository.findById(id).get();
-			locationFromDb.setName(name);				
-		    return locationRepository.save(locationFromDb);
+		public String update(String id, String name) {
+			try {
+				Location locationFromDb = locationRepository.findById(id).get();
+				locationFromDb.setName(name);				
+			    return locationRepository.save(locationFromDb).toString();
+			}
+			catch(Exception e) {
+				return "Cannot update a row with id " + id;
+			}
 		}
 
 		public String delete(String id, String name) {
